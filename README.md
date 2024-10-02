@@ -26,7 +26,7 @@ These sources are cleaned and formatted for analysis and reporting
 
 - Conditional Summaries: IFS functions are utilized to generate conditional summary tables on the rapo sheet, calculating totals and transaction counts based on predefined conditions for each salesperson and group.
 
-- Automation with VBA: A VBA macro named laske automates the report generation process, iterating through sales data to calculate totals and transaction counts. The results are inserted into the rapo sheet, summarizing each salesperson’s performance efficiently.
+- Automation with VBA: A VBA macro (can be found in the file module3) named laske automates the report generation process, iterating through sales data to calculate totals and transaction counts. The results are inserted into the rapo sheet, summarizing each salesperson’s performance efficiently.
 
 - Text Data Formatting: Various Excel text functions, such as Find, Left, Right, Proper, and Trim, are applied to clean and standardize text data, including generating email addresses in a specific format and ensuring consistent name capitalization. This preparation aids in accurate reporting and display.
 
