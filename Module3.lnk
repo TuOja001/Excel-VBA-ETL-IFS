@@ -1,0 +1,80 @@
+Attribute VB_Name = "Module3"
+Option Explicit
+Dim myyjat As Variant
+Dim ryhmat As Variant
+Dim myynnit As Variant
+Dim rapo As Worksheet
+Dim myyntidata As Worksheet
+Dim i, j, k As Long
+Dim kate_yht As Variant
+Dim kpl_yht As Variant
+
+Const ryhma_s = 10
+Const myyja_s = 8
+Const kate_s = 11
+
+Const ryhma_lkm = 6
+Const myyja_lkm = 15
+Sub laske()
+
+    Application.ScreenUpdating = False
+    Application.Calculation = xlCalculationManual
+
+    Set rapo = ThisWorkbook.Worksheets("rapo")
+    Set myyntidata = ThisWorkbook.Worksheets("myynnit")
+
+    myyjat = rapo.Range("myyjat").Value
+    ryhmat = rapo.Range("ryhmat").Value
+    myynnit = myyntidata.Range("myynnit").Value
+
+    kate_yht = yht(UBound(myyjat, 1), UBound(ryhmat, 2))
+    kpl_yht = lkm(UBound(myyjat, 1), UBound(ryhmat, 2))
+
+    For i = 1 To UBound(myyjat, 1)
+        For j = 1 To UBound(ryhmat, 2)
+            rapo.Cells(i + 2, j + 20).Value = kate_yht(i, j)
+            rapo.Cells(i + 22, j + 20).Value = kpl_yht(i, j)
+        Next j
+    Next i
+
+    Application.ScreenUpdating = True
+    Application.Calculation = xlCalculationAutomatic
+End Sub
+
+Function yht(ByVal mnro As Integer, ByVal rnro As Integer) As Variant
+
+    ReDim kate_yht(1 To mnro, 1 To rnro)
+
+    For i = 1 To mnro
+        For j = 1 To rnro
+            kate_yht(i, j) = 0
+            For k = 1 To UBound(myynnit, 1)
+                If myynnit(k, myyja_s) = myyjat(i, 1) And myynnit(k, ryhma_s) = ryhmat(1, j) Then
+                    kate_yht(i, j) = kate_yht(i, j) + myynnit(k, kate_s)
+                End If
+            Next k
+        Next j
+    Next i
+    
+    yht = kate_yht
+End Function
+
+Function lkm(ByVal mnro As Integer, ByVal rnro As Integer) As Variant
+   
+
+    ReDim kpl_yht(1 To mnro, 1 To rnro)
+
+    For i = 1 To mnro
+        For j = 1 To rnro
+            kpl_yht(i, j) = 0
+            For k = 1 To UBound(myynnit, 1)
+                If myynnit(k, myyja_s) = myyjat(i, 1) And myynnit(k, ryhma_s) = ryhmat(1, j) Then
+                    kpl_yht(i, j) = kpl_yht(i, j) + 1
+                End If
+            Next k
+        Next j
+    Next i
+    
+    lkm = kpl_yht
+End Function
+
