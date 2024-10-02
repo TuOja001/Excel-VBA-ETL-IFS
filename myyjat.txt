@@ -1,0 +1,16 @@
+ID;Nimi;Toimipiste
+1;Jani;Turku
+2;Petteri;Turku
+3;Pekka;Turku
+5;Liisa;Turku
+6;Hessu;Turku
+7;Rauno;Turku
+9;Maija;Turku
+10;Jenni;Tampere
+11;Lisbeth;Tampere
+13;Mari;Tampere
+14;Hillevi;Tampere
+15;Sohvi;Tampere
+16;Sanni;Tampere
+18;Juhani;Oulu
+19;Valtteri;Oulu
