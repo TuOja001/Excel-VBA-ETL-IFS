@@ -1,4 +1,3 @@
-Attribute VB_Name = "Module3"
 Option Explicit
 Dim myyjat As Variant
 Dim ryhmat As Variant
